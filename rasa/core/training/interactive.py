@@ -11,6 +11,7 @@ from typing import (
     Dict,
     List,
     Optional,
+    TYPE_CHECKING,
     Text,
     Tuple,
     Union,
@@ -82,6 +83,9 @@ from rasa.shared.nlu.training_data.message import Message
 # run the interactive learning and check if your part of the "ui"
 # still works.
 import rasa.utils.io as io_utils
+
+if TYPE_CHECKING:
+    from rasa.shared.core.generator import TrackerWithCachedStates
 
 logger = logging.getLogger(__name__)
 
@@ -1552,7 +1556,7 @@ async def _get_tracker_events_to_plot(
 
 async def _get_training_trackers(
     file_importer: TrainingDataImporter, domain: Dict[str, Any]
-) -> List[DialogueStateTracker]:
+) -> List[TrackerWithCachedStates]:
     from rasa.core import training
 
     return await training.load_data(

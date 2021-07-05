@@ -193,7 +193,7 @@ class RulePolicy(MemoizationPolicy):
             new_states.insert(0, state)
 
         if not new_states:
-            return
+            return None
 
         # we sort keys to make sure that the same states
         # represented as dictionaries have the same json strings
