@@ -1,3 +1,4 @@
+from __future__ import annotations
 import copy
 import logging
 
@@ -626,9 +627,9 @@ class ResponseSelector(DIETClassifier):
         meta: Dict[Text, Any],
         model_dir: Text,
         model_metadata: Metadata = None,
-        cached_component: Optional["ResponseSelector"] = None,
+        cached_component: Optional[ResponseSelector] = None,
         **kwargs: Any,
-    ) -> "ResponseSelector":
+    ) -> ResponseSelector:
         """Loads the trained model from the provided directory."""
 
         model = super().load(
