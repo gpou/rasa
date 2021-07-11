@@ -19,6 +19,14 @@ RUN python -m venv /opt/venv && \
   pip install --no-deps dist/*.whl && \
   rm -rf dist *.egg-info
 
+RUN pip install opentelemetry-sdk && \
+  pip install opentelemetry-instrumentation && \
+  pip install opentelemetry-instrumentation-aiohttp-client && \
+  pip install opentelemetry-instrumentation-sqlalchemy && \
+  pip install opentelemetry-instrumentation-logging && \
+  pip install opentelemetry-exporter-jaeger && \
+  pip install jaeger-client
+
 # start a new build stage
 FROM ${IMAGE_BASE_NAME}:base-${BASE_IMAGE_HASH} as runner
 
