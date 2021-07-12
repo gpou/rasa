@@ -281,7 +281,7 @@ class ActionBotResponse(Action):
         if message is None:
             if not self.silent_fail:
                 logger.error(
-                    "Couldn't create message for response '{}'."
+                    "Gemma github test: Couldn't create message for response '{}'."
                     "".format(self.utter_action)
                 )
             return []
