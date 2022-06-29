@@ -929,9 +929,7 @@ def create_app(
 
         intent_to_trigger = request_params.get("name")
 
-        request.app.metrics['TRIGGER_INTENT_COUNT'].labels(
-            conversation_id, intent_to_trigger
-        ).inc()
+        request.app.metrics['TRIGGER_INTENT_COUNT'].labels(intent_to_trigger).inc()
 
         entities = request_params.get("entities", [])
 
